@@ -5,7 +5,7 @@ $(document).ready(function() {
     }
 
     //install button
-    let deferredPrompt;
+    /*let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
@@ -21,7 +21,7 @@ $(document).ready(function() {
                 deferredPrompt = null;
             }
         }
-    });
+    });*/
 
 
     $.ajax({
