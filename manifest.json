@@ -22,7 +22,7 @@
   "start_url": "index.html",
   "background_color": "#FFFFFF",
   "display": "standalone",
-  "scope": "/intervals",
+  "scope": "/",
   "theme_color": "#FFFFFF",
   "description": "Practice intervals"
 }
