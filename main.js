@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    if (navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.register('sw.js');
+    }
     $.ajax({
         type: "GET",
         url: "intervals.csv",
