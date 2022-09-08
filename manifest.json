@@ -4,17 +4,17 @@
   "author": "Giovanni Fontana",
   "icons": [
     {
-      "src": "/images/icon-note-50.png",
+      "src": "intervals/images/icon-note-50.png",
       "type": "image/png",
       "sizes": "50x50"
     },
     {
-      "src": "/images/icon-note-100.png",
+      "src": "intervals/images/icon-note-100.png",
       "type": "image/png",
       "sizes": "100x100"
     },
     {
-      "src": "/images/icon-note-144.png",
+      "src": "intervals/images/icon-note-144.png",
       "type": "image/png",
       "sizes": "144x144"
     }
