@@ -116,13 +116,26 @@ function getNote(note){
     var getIt = false;
     if(mainKey[intervals[diff][interval]] == note){
         right++;
+        $('.right').text(right);
+        $('#thright').css("background-color", "#00FF00")
+        setTimeout(
+            function() {
+        $('#thright').css("background-color", "#FFFFFF")
+               //do something special
+        }, 200);
         getIt = true;
     }
     else{
         wrong++;
+        $('.wrong').text(wrong);
+        $('#thwrong').css("background-color", "#FF0000")
+        setTimeout(
+            function() {
+        $('#thwrong').css("background-color", "#FFFFFF")
+               //do something special
+        }, 200);
         getIt = false;
     }
-    $('.rightTotal').text(right);
     $('.total').text(total);
     if(howMany != -1 &&  total < howMany)
         selectNote(getIt);
@@ -141,6 +154,7 @@ function gameOver(){
     var strTime = hours +":"+minutes+":"+seconds;
     $('#game').remove();
     $('#abort').remove();
+    $('#currentAnswer').remove();
     $('.risultati').css("visibility", "visible");
     $('.right').text(right);
     $('.wrong').text(wrong);
