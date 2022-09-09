@@ -172,21 +172,27 @@ function getNote(note){
 function gameOver(){
     endTime = new Date().getTime();
     totalTime = endTime - startTime;
-    var hours = Math.floor((totalTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((totalTime % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((totalTime % (1000 * 60)) / 1000);
-    var strTime = hours +":"+minutes+":"+seconds;
+    
     $('#game').remove();
     $('#abort').remove();
     $('#currentAnswer').remove();
     $('.risultati').css("visibility", "visible");
     $('.right').text(right);
     $('.wrong').text(wrong);
-    $('.time').text(totalTime);
-    writeTodayStats(strTime);  
+    $('.time').text(getStrTime(totalTime));
+    writeTodayStats(totalTime);  
 }
 
-function writeTodayStats(strTime){
+function getStrTime(totalTime){
+    strTime = getstrTime(totalTime);
+    var hours = Math.floor((totalTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((totalTime % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((totalTime % (1000 * 60)) / 1000);
+    var strTime = hours +":"+minutes+":"+seconds;
+    return strTime;
+}
+
+function writeTodayStats(totalTime){
     var now = Date.now();
     var stat = {
         "date": now,
@@ -195,7 +201,7 @@ function writeTodayStats(strTime){
         "howMany": howMany,
         "right": right,
         "wrong": wrong,
-        "time": strTime, 
+        "time": totalTime, 
     };
     oldStats = JSON.parse(localStorage.getItem("stats"));
     if(oldStats == null)
