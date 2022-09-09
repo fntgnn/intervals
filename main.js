@@ -51,6 +51,8 @@ var howMany = 0;
 var startTime = 0;
 var endTime = 0;
 
+var stats = [];
+
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
     var headers = allTextLines[0].split(',');
@@ -180,9 +182,42 @@ function gameOver(){
     $('.risultati').css("visibility", "visible");
     $('.right').text(right);
     $('.wrong').text(wrong);
-    $('.time').text(strTime);
+    $('.time').text(totalTime);
+    writeTodayStats(strTime);  
+}
+
+function writeTodayStats(strTime){
+    var now = Date.now();
+    var stat = {
+        "date": now,
+        "key": mainKey["key"],
+        "difficulty": diff,
+        "howMany": howMany,
+        "right": right,
+        "wrong": wrong,
+        "time": strTime, 
+    };
+    oldStats = JSON.parse(localStorage.getItem("stats"));
+    if(oldStats == null)
+        stats[0] = stat;
+    else{
+        stats = oldStats;
+        stats.push(stat);
+    }
+    localStorage.removeItem("stats");
+    localStorage.setItem("stats",JSON.stringify(stats));
 }
 
 function playAgain(){
     location.reload();
+}
+
+function today(){
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy +'-' + mm + '-' + dd;
+    return today;
 }
