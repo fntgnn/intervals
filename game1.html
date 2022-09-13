@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <title>Game 2</title>
+    <title>Intervals</title>
 </head>
 <body>
     <div class="container">
@@ -18,10 +18,10 @@
                 <ul class="navbar-nav">
                     <!--<li><button id="installApp" class="btn btn-primary">Install</button></li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="game1.html">| Game 1 | </a>
+                    <a class="nav-link active" href="game1.html">| Game 1 | </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="game2.html">Game 2 | </a>
+                    <a class="nav-link" href="game2.html">Game 2 | </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
@@ -53,12 +53,30 @@
                     <label class="form-check-label" for="inlineRadio3">&#8734;</label>
                     </div>
             </div>
-
-            <b>The game will start after choosing a difficult!</b>
+            <div id="setKey" style="visibility: hidden">
+                Key: 
+                <button class="btn btn-primary" onclick="chooseKey('C')">C</button>
+                <button class="btn btn-primary" onclick="chooseKey('Db')">Db</button>
+                <button class="btn btn-primary" onclick="chooseKey('D')">D</button>
+                <button class="btn btn-primary" onclick="chooseKey('Eb')">Eb</button>
+                <button class="btn btn-primary" onclick="chooseKey('E')">E</button>
+                <button class="btn btn-primary" onclick="chooseKey('F')">F</button>
+                <button class="btn btn-primary" onclick="chooseKey('F#')">F#</button>
+                <button class="btn btn-primary" onclick="chooseKey('G')">G</button>
+                <button class="btn btn-primary" onclick="chooseKey('G#')">G#</button>
+                <button class="btn btn-primary" onclick="chooseKey('Ab')">Ab</button>
+                <button class="btn btn-primary" onclick="chooseKey('A')">A</button>
+                <button class="btn btn-primary" onclick="chooseKey('A#')">A#</button>
+                <button class="btn btn-primary" onclick="chooseKey('Bb')">Bb</button>
+                <button class="btn btn-primary" onclick="chooseKey('B')">B</button>
+                <button class="btn btn-danger" onclick="chooseKey()">Random</button>
+            </div>
+            <b>The game will start after choosing a key!</b>
             
         </div>
-        <div id="game" style="visibility: hidden;">
-        <h2><span id="note"></span> is the <span id="interval"></span> of...</h2>
+        <div id="game">
+        <h2>Key: <span id="key"></span></h2>
+        <h2>Interval: <span id="interval"></span></h2>
         <div class="btn-toolbar d-flex justify-content-between mb-4">
             <div class="btn-group mb-2">
                 <button class="btn btn-warning" onclick="getNote('Cbb')">Cbb</button>
@@ -145,9 +163,8 @@
         <i class="fa-regular fa-clock bg-primary p-2 rounded m-1"></i> time: <span class="time"></span> <br>
         <button class="btn btn-success" onclick="playAgain()">Play Again!</button>
         <a href="index.html" class="btn btn-primary">Choose another game</a>
-
     </div>
     <footer>Made with: <a href="https://icons8.com/" target="_blank">Icons8</a>, <a href="https://www.fontawesome.com" target="_blank">FontAwesome</a>, <a href="https://jquery.com" target="_blank">jQuery</a>, <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></footer>
-   <script src="game2.js"></script>
+   <script src="game1.js"></script>
 </body>
 </html>
