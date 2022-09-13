@@ -92,17 +92,19 @@ function play(){
     startTime = new Date().getTime();
 }
 function selectNote(getIt){
-    var note_index = Math.floor(Math.random()*tunes.length);
-    var key = tunes[note_index];
-    console.log(key);
-    var interval_index = Math.floor(Math.random()*intervals[diff].length);
-    var interval_index_def = intervals[diff][interval_index];
-    console.log("Interval position: "+interval_index_def);
-    console.log(key[interval_index_def]);
-    $('#note').text(key[interval_index_def]);
-    $('#interval').text(interval_index_def);
-    guessNote = key['key'];
-    console.log("devi indovinare " + guessNote);
+    if(getIt != false){
+        var note_index = Math.floor(Math.random()*tunes.length);
+        var key = tunes[note_index];
+        console.log(key);
+        var interval_index = Math.floor(Math.random()*intervals[diff].length);
+        var interval_index_def = intervals[diff][interval_index];
+        console.log("Interval position: "+interval_index_def);
+        console.log(key[interval_index_def]);
+        $('#note').text(key[interval_index_def]);
+        $('#interval').text(interval_index_def);
+        guessNote = key['key'];
+        console.log("devi indovinare " + guessNote);
+    }
     /*if(getIt != false){
         newInterval = Math.floor(Math.random()*intervals[diff].length);
         while(newInterval == interval)
