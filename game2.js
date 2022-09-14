@@ -17,6 +17,7 @@ var intervalsNatTxt = '1 2 3 4 5 6 7';
 var intervalsAltTxt = '1 2b 2 2# 3b 3 3# 4b 4 4# 5b 5 5# 6b 6 6# 7b 7 7# 9b 9 9# 11b 11 11# 13b 13 13#';
 var intervals = [];
 var interval;
+var headers = [];
 intervals['nat'] = intervalsNatTxt.split(" ");
 intervals['alt'] = intervalsAltTxt.split(" ");
 var diff = 'nat';
@@ -27,13 +28,15 @@ var right = 0;
 var wrong = 0;
 var howMany = 0;
 var guessNote;
+var isCustomInterval = false;
+var customInterval;
 
 var startTime = 0;
 var endTime = 0;
 
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
-    var headers = allTextLines[0].split(',');
+    headers = allTextLines[0].split(',');
     var lines = [];
 
     for (var i=1; i<allTextLines.length; i++) {
@@ -73,11 +76,35 @@ function chooseLength(){
 }
 
 function chooseDiff(difficulty){
-    diff = difficulty;
-    console.log(diff);
-    console.log(intervals);
-    chooseLength();
-    start();
+    if(difficulty != "custom"){
+        diff = difficulty;
+        console.log(diff);
+        console.log(intervals);
+        chooseLength();
+        start();
+    }
+    else{
+        isCustomInterval = true;
+        console.log(headers);
+        var htmlIntervals = ""
+        for(var i = 0; i < headers.length; i++){
+            htmlIntervals += "<div class='form-check form-check-inline'><input class='form-check-input' type='radio' name=customInt id="+headers[i]+" value="+headers[i]+"><label class='form-check-label' for='customInt'>"+headers[i]+"</label></div>";
+        }
+        htmlIntervals += "<br><button class='btn btn-primary' onclick='playCustomInterval()'>Play!</button>"
+        $('#customInterval').html(htmlIntervals);
+
+    }
+
+}
+
+function playCustomInterval(){
+    var c = $('#customInt');
+    customInterval = $('input[name=customInt]:checked').val();
+    if (customInterval == null ) alert("Select an interval first!");
+    else{
+        chooseLength();
+        start();
+    }
 }
 
 function play(){
@@ -93,17 +120,23 @@ function play(){
 }
 function selectNote(getIt){
     if(getIt != false){
-        var note_index = Math.floor(Math.random()*tunes.length);
-        var key = tunes[note_index];
+        var note_index = Math.floor(Math.random()*tunes.length);    //tonalità a caso
+        var key = tunes[note_index];   
         console.log(key);
-        var interval_index = Math.floor(Math.random()*intervals[diff].length);
-        var interval_index_def = intervals[diff][interval_index];
+        if(isCustomInterval == false){
+            var interval_index = Math.floor(Math.random()*intervals[diff].length);  //intervallo a caso
+            var interval_index_def = intervals[diff][interval_index];
+        }
+        else{
+            interval_index_def = customInterval;
+        }
         console.log("Interval position: "+interval_index_def);
         console.log(key[interval_index_def]);
         $('#note').text(key[interval_index_def]);
         $('#interval').text(interval_index_def);
         guessNote = key['key'];
         console.log("devi indovinare " + guessNote);
+        console.log("howMany" + howMany);
     }
     /*if(getIt != false){
         newInterval = Math.floor(Math.random()*intervals[diff].length);
