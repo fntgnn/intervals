@@ -77,6 +77,7 @@ function chooseLength(){
 
 function chooseDiff(difficulty){
     if(difficulty != "custom"){
+        console.log("sono qui");
         diff = difficulty;
         console.log(diff);
         console.log(intervals);
