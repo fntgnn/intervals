@@ -47,9 +47,21 @@ var total = 0;
 var right = 0;
 var wrong = 0;
 var howMany = 0;
-
+var notation;
 var startTime = 0;
 var endTime = 0;
+
+$( "input[name=notation]" ).change(function() {
+    notation = $('input[name=notation]:checked').val();
+    console.log("Notazione: "+notation);
+
+});
+
+function traduce(n){
+    if(notation == "ita"){
+        if (n == "A") return "LA";
+    }
+}
 
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);

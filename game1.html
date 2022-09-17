@@ -23,6 +23,17 @@
             </div>
         </nav>
         <div class="setup border">
+            <!--<div class="border m-2">
+                <b>Notation:</b> <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="notation" id="american" value="eng" checked="checked">
+                    <label class="form-check-label" for="inlineRadio1"><b>Default</b>: A B C D E F G</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="notation" id="italian" value="it">
+                    <label class="form-check-label" for="inlineRadio2"><b>Italian</b>: DO RE MI FA SOL LA SI</label>
+                    </div>
+            </div>-->
             <div class="border m-2">
                 <b>Difficulty:</b> <br>
                  <button class="btn btn-success m-2" onclick="chooseDiff('nat')">Easy</button> only natural intervals <br>
@@ -69,73 +80,73 @@
             
         </div>
         <div id="game">
-        <h2>Key: <span id="key"></span></h2>
-        <h2>Interval: <span id="interval"></span></h2>
+        <table class="table table-bordered">
+            <tr>
+                <td style="font-size:large"><b>Key: <span id="key"></span></b></td>
+                <td style="font-size:large"><b>Interval: <span id="interval"></span></b></td>
+            </tr>
+        </table>
         <div class="btn-toolbar d-flex justify-content-between mb-4">
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Cbb')">Cbb</button>
-                <button class="btn btn-warning" onclick="getNote('Cb')">Cb</button>
-                <button class="btn btn-primary" onclick="getNote('C')">C</button>
-                <button class="btn btn-danger" onclick="getNote('C#')">C#</button>
-                <button class="btn btn-danger" onclick="getNote('C##')">C##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Cbb')">Cbb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Cb')">Cb</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('C')">C</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('C#')">C#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('C##')">C##</button>
             </div>
 
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Dbb')">Dbb</button>
-                <button class="btn btn-warning" onclick="getNote('Db')">Db</button>
-                <button class="btn btn-primary" onclick="getNote('D')">D</button>
-                <button class="btn btn-danger" onclick="getNote('D#')">D#</button>
-                <button class="btn btn-danger" onclick="getNote('D##')">D##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Dbb')">Dbb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Db')">Db</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('D')">D</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('D#')">D#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('D##')">D##</button>
             </div>
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Ebb')">Ebb</button>
-                <button class="btn btn-warning" onclick="getNote('Eb')">Eb</button>
-                <button class="btn btn-primary" onclick="getNote('E')">E</button>
-                <button class="btn btn-danger" onclick="getNote('E#')">E#</button>
-                <button class="btn btn-danger" onclick="getNote('E##')">E##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Ebb')">Ebb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Eb')">Eb</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('E')">E</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('E#')">E#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('E##')">E##</button>
             </div>
         </div> 
 
 
         <div class="btn-toolbar d-flex justify-content-between mb-4">
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Fbb')">Fbb</button>
-                <button class="btn btn-warning" onclick="getNote('Fb')">Fb</button>
-                <button class="btn btn-primary" onclick="getNote('F')">F</button>
-                <button class="btn btn-danger" onclick="getNote('F#')">F#</button>
-                <button class="btn btn-danger" onclick="getNote('F##')">F##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Fbb')">Fbb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Fb')">Fb</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('F')">F</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('F#')">F#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('F##')">F##</button>
             </div>
 
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Gbb')">Gbb</button>
-                <button class="btn btn-warning" onclick="getNote('Gb')">Gb</button>
-                <button class="btn btn-primary" onclick="getNote('G')">G</button>
-                <button class="btn btn-danger" onclick="getNote('G#')">G#</button>
-                <button class="btn btn-danger" onclick="getNote('G##')">G##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Gbb')">Gbb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Gb')">Gb</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('G')">G</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('G#')">G#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('G##')">G##</button>
             </div>
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Abb')">Abb</button>
-                <button class="btn btn-warning" onclick="getNote('Ab')">Ab</button>
-                <button class="btn btn-primary" onclick="getNote('A')">A</button>
-                <button class="btn btn-danger" onclick="getNote('A#')">A#</button>
-                <button class="btn btn-danger" onclick="getNote('A##')">A##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Abb')">Abb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Ab')">Ab</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('A')">A</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('A#')">A#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('A##')">A##</button>
             </div>
         </div>
         <div class="btn-toolbar d-flex justify-content-between mb-4">
             <div class="btn-group mb-2">
-                <button class="btn btn-warning" onclick="getNote('Bbb')">Bbb</button>
-                <button class="btn btn-warning" onclick="getNote('Bb')">Bb</button>
-                <button class="btn btn-primary" onclick="getNote('B')">B</button>
-                <button class="btn btn-danger" onclick="getNote('B#')">B#</button>
-                <button class="btn btn-danger" onclick="getNote('B##')">B##</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Bbb')">Bbb</button>
+                <button class="btn btn-lg btn-warning" onclick="getNote('Bb')">Bb</button>
+                <button class="btn btn-lg btn-primary" onclick="getNote('B')">B</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('B#')">B#</button>
+                <button class="btn btn-lg btn-danger" onclick="getNote('B##')">B##</button>
             </div>
         </div>
     </div>
     
-    <div id="abort" style="visibility: hidden;">
-        <button class="btn btn-warning" onclick="gameOver()">Stop</button>
-        <button class="btn btn-danger" onclick="playAgain()">Restart</button>
-    </div>
     <div id="currentAnswer" style="visibility: hidden;">
         <table class="table table-bordered">
         <tr>
@@ -150,7 +161,11 @@
         </tr>
         </table>
     </div>
-    
+     <div id="abort" style="visibility: hidden;">
+        <button class="btn btn-warning" onclick="gameOver()">Stop</button>
+        <button class="btn btn-danger" onclick="playAgain()">Restart</button>
+    </div>
+   
     <div class="risultati" style="visibility: hidden;">
         <i class="fa-regular fa-circle-check bg-success p-2 rounded m-1"></i> right: <span class="right"></span> <br>
         <i class="fa-regular fa-circle-xmark bg-danger p-2 rounded m-1"></i> wrong: <span class="wrong"></span> <br>
