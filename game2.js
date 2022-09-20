@@ -207,8 +207,11 @@ function gameOver(){
     endTime = new Date().getTime();
     totalTime = endTime - startTime;
     var hours = Math.floor((totalTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    if(hours.toString().length == 1) hours = "0"+hours;
     var minutes = Math.floor((totalTime % (1000 * 60 * 60)) / (1000 * 60));
+    if(minutes.toString().length == 1) minutes = "0"+minutes;
     var seconds = Math.floor((totalTime % (1000 * 60)) / 1000);
+    if(seconds.toString().length == 1) seconds = "0"+seconds;
     var strTime = hours +":"+minutes+":"+seconds;
     $('#game').remove();
     $('#abort').remove();
