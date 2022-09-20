@@ -57,11 +57,6 @@ $( "input[name=notation]" ).change(function() {
 
 });
 
-function traduce(n){
-    if(notation == "ita"){
-        if (n == "A") return "LA";
-    }
-}
 
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
@@ -82,18 +77,22 @@ function processData(allText) {
             tunes.push(tune);
         }
     }
-    start();
 }
 
 function start(){
+    diff = $('input[name=difficulty]:checked').val();
+    chooseKey();
+    $('#setKey').css('visibility','visible');
     $('#interval').css('visibility','hidden');
     $('#game').css('visibility','hidden');
+    play();
 }
 
 function chooseKey(k){
     var n;
+    k = $('input[name=chooseKey]:checked').val();
     chooseLength();
-    if (k == undefined)
+    if (k == 'rand')
         n = Math.floor(Math.random() * tunes.length);
     else{
         console.log(tunes[0]['key'])
@@ -103,7 +102,6 @@ function chooseKey(k){
         }
     }
     mainKey = tunes[n];
-    play();
 }
 
 function chooseLength(){
@@ -119,10 +117,6 @@ function chooseLength(){
 
 }
 
-function chooseDiff(difficulty){
-    diff = difficulty;
-    $('#setKey').css('visibility','visible');
-}
 
 function play(){
     $('.setup').remove();
@@ -135,6 +129,7 @@ function play(){
     selectNote();
     startTime = new Date().getTime();
 }
+
 function selectNote(getIt){
     if(getIt != false){
         newInterval = Math.floor(Math.random()*intervals[diff].length);
