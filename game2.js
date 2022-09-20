@@ -55,10 +55,35 @@ function processData(allText) {
     }
 }
 
+$( "input[name=difficulty]" ).change(function() {
+    diff = $('input[name=difficulty]:checked').val();
+    console.log(diff);
+    if(diff == 'custom') {
+        isCustomInterval = true;
+        console.log(headers);
+        var htmlIntervals = ""
+        for(var i = 0; i < headers.length; i++){
+            htmlIntervals += "<div class='form-check form-check-inline'><input class='form-check-input' type='radio' name=customInt id="+headers[i]+" value="+headers[i]+"><label class='form-check-label' for='customInt'>"+headers[i]+"</label></div>";
+        }
+        $('#customInterval').html(htmlIntervals);
+        $('#2').attr('checked', true);
+        $('#customInterval').css("visibility", "visible");
+    }
+    else{
+        $('#customInterval').css("visibility", "hidden");
+    }
+
+});
+
 function start(){
     $('#interval').css('visibility','hidden');
     $('#game').css('visibility','hidden');
+    if(diff == "custom"){
+        customInterval = $('input[name=customInt]:checked').val();
+    }
+    chooseLength();
     play();
+
 }
 
 
@@ -85,15 +110,7 @@ function chooseDiff(difficulty){
         start();
     }
     else{
-        isCustomInterval = true;
-        console.log(headers);
-        var htmlIntervals = ""
-        for(var i = 0; i < headers.length; i++){
-            htmlIntervals += "<div class='form-check form-check-inline'><input class='form-check-input' type='radio' name=customInt id="+headers[i]+" value="+headers[i]+"><label class='form-check-label' for='customInt'>"+headers[i]+"</label></div>";
-        }
-        htmlIntervals += "<br><button class='btn btn-primary' onclick='playCustomInterval()'>Play!</button>"
-        $('#customInterval').html(htmlIntervals);
-
+        
     }
 
 }
@@ -113,12 +130,16 @@ function play(){
     $('#game').css('visibility','visible');
     $('#setKey').css('visibility','hidden');
     $('#interval').css('visibility','visible');
-    $('#interval').text(intervals[diff][posInterval]);
+    
     $('#currentAnswer').css('visibility','visible');
-    $('#key').text(mainKey.key);
+    if(diff != "custom"){
+        $('#interval').text(intervals[diff][posInterval]);
+        $('#key').text(mainKey.key);
+    }
     selectNote();
     startTime = new Date().getTime();
 }
+
 function selectNote(getIt){
     if(getIt != false){
         var note_index = Math.floor(Math.random()*tunes.length);    //tonalità a caso

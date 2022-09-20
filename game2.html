@@ -25,9 +25,22 @@
         <div class="setup border">
             <div class="border m-2">
                 <b>Difficulty:</b> <br>
-                 <button class="btn btn-success m-2" onclick="chooseDiff('nat')">Easy</button> only natural intervals <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="difficulty" id="easy" value="nat" checked="checked">
+                    <label class="form-check-label" for="inlineRadio1">Easy</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="difficulty" id="hard" value="alt">
+                    <label class="form-check-label" for="inlineRadio2">Hard</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="difficulty" id="custom" value="custom">
+                    <label class="form-check-label" for="inlineRadio2">Custom</label>
+                    </div>
+                <!-- <button class="btn btn-success m-2" onclick="chooseDiff('nat')">Easy</button> only natural intervals <br>
                  <button class="btn btn-danger m-2" onclick="chooseDiff('alt')">Hard</button> alterated intervals <br>
                  <button class="btn btn-warning m-2" onclick="chooseDiff('custom')">Custom</button> Choose interval
+                -->
                <div id="customInterval">
                    
                </div> 
@@ -52,7 +65,7 @@
                     </div>
             </div>
 
-            <b>The game will start after choosing a difficulty!</b>
+        <button class="btn btn-primary m-2" onclick="start()">Start!</button>
             
         </div>
         <div id="game" style="visibility: hidden;">
