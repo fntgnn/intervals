@@ -147,6 +147,7 @@ function selectNote(getIt){
         console.log(key);
         if(isCustomInterval == false){
             var interval_index = Math.floor(Math.random()*intervals[diff].length);  //intervallo a caso
+            if (interval_index == 1) interval_index = 4;        //se è 1 prendi la quarta (più difficile) potevo farlo random
             var interval_index_def = intervals[diff][interval_index];
         }
         else{
